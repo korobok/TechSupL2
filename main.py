@@ -21,4 +21,4 @@ urllib.request.urlretrieve(url, filename)
 f = open(filename)
 for line in f:
     if 'Running' in line:
-        print (line)
+        print (line[:line.find(' ')])
