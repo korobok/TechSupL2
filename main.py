@@ -30,3 +30,4 @@ f = open(filename, 'w')
 servicerun = map (lambda x: x + '\n', servicerun)
 f.writelines (servicerun)
 f.close ()
+
