@@ -19,6 +19,9 @@ url = 'https://raw.githubusercontent.com/GreatMedivack/files/master/list.out'
 filename = servername + '_' + date + '_running' + '.out'
 urllib.request.urlretrieve(url, filename)
 f = open(filename)
+servicerun = []
 for line in f:
     if 'Running' in line:
-        print (line[:line.find(' ')])
+        servicerun.append((line[:line.find(' ')]))
+f.close()
+print (servicerun)
