@@ -14,14 +14,19 @@ else:
 date = datetime.datetime.today()
 date = date.strftime('%d_%m_%Y')
 
-# Качаем и создаем файл с необходимыми именем SERVER_DATE_running.out и данными
+# Качаем и создаем файл с необходимыми именем SERVER_DATE_running.out
 url = 'https://raw.githubusercontent.com/GreatMedivack/files/master/list.out'
 filename = servername + '_' + date + '_running' + '.out'
 urllib.request.urlretrieve(url, filename)
+# Открываем файл и ищем все строки где присутствует Running, отсекаем лишнее и пишем в список.
 f = open(filename)
 servicerun = []
 for line in f:
     if 'Running' in line:
         servicerun.append((line[:line.find(' ')]))
 f.close()
-print (servicerun)
+# Снова открываем файл на запись и пишем в него список
+f = open(filename, 'w')
+servicerun = map (lambda x: x + '\n', servicerun)
+f.writelines (servicerun)
+f.close ()
