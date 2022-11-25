@@ -44,4 +44,7 @@ if os.path.isfile(file_path) == False:
     for name in [filename]:
         tar.add(name)
     tar.close()
+    print ('Работа завершена архив успешно создан')
+else:
+    print('Архив с таким именем уже существует')
 os.remove(filename)
