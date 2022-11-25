@@ -1,4 +1,5 @@
 import sys
+import os
 import datetime
 import urllib.request
 import ssl
@@ -30,3 +31,6 @@ f = open(filename, 'w')
 servicerun = map (lambda x: x + '\n', servicerun)
 f.writelines (servicerun)
 f.close ()
+# Создаем папку archives с проверкой на ее существование
+if not os.path.isdir("archives"):
+     os.mkdir("archives")
