@@ -39,7 +39,7 @@ if not os.path.isdir("archives"):
 # archives если архива с таким именем еще не существует. Удаляем файл .out
 filenametar = servername + '_' + date + '.tar'
 file_path = "archives/" + filenametar
-if os.path.exists(file_path) == False:
+if os.path.isfile(file_path) == False:
     tar = tarfile.open("archives/" + filenametar, "w")
     for name in [filename]:
         tar.add(name)
