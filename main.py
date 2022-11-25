@@ -36,9 +36,10 @@ f.close ()
 if not os.path.isdir("archives"):
      os.mkdir("archives")
 # Запаковывает файл в архив c именем SERVER_DATE и складывает его в папку
-# archives если архива с таким именем еще не существует
+# archives если архива с таким именем еще не существует, удаляем файл .out
 filenametar = servername + '_' + date + '.tar'
-tar = tarfile.open(filenametar, "w")
+tar = tarfile.open("archives/" + filenametar, "w")
 for name in [filename]:
     tar.add(name)
 tar.close()
+os.remove(filename)
